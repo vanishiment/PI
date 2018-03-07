@@ -15,22 +15,27 @@
             app:showAsAction="ifRoom">
 
         <menu>
-            <group android:checkableBehavior="single">
+            <group>
 
                 <item android:id="@+id/more1"
-                      android:title="more1"/>
+                      android:title="设置"
+                      android:icon="@drawable/ic_more"/>
 
                 <item android:id="@+id/more2"
-                      android:title="more2"/>
+                      android:title="扫一扫"
+                      android:icon="@drawable/ic_more"/>
 
                 <item android:id="@+id/more3"
-                      android:title="more3"/>
+                      android:title="more3"
+                      android:icon="@drawable/ic_home_black_24dp"/>
 
                 <item android:id="@+id/more4"
-                      android:title="more4"/>
+                      android:title="more4"
+                      android:icon="@drawable/ic_dashboard_black_24dp"/>
 
                 <item android:id="@+id/more5"
-                      android:title="more5"/>
+                      android:title="more5"
+                      android:icon="@drawable/ic_notifications_black_24dp"/>
 
             </group>
         </menu>
