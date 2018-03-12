@@ -1,4 +1,4 @@
-package io.app.pi;
+package io.app.pi.base;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import io.app.pi.R;
 
 /**
  * 用于显示界面的 loading、错误信息提示等状态。

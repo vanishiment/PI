@@ -31,6 +31,8 @@ dependencies {
     implementation SUPPORT_DESIGN
     implementation SUPPORT_VECTOR_DRAWABLE
     implementation SUPPORT_CARD_VIEW
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:support-v4:26.1.0'
     testImplementation TEST_JUNIT
     androidTestImplementation TEST_RUNNER
     androidTestImplementation TEST_ESPRESSO
@@ -40,4 +42,14 @@ dependencies {
         exclude group: "com.android.support"
     }
     annotationProcessor GLIDE_COMPILER
+    compile WCDB
+    implementation files('libs/juniversalchardet-1.0.3.jar')
+    compile BUTTER_KNIFE
+    annotationProcessor BUTTER_KNIFE_COMPILER
+    implementation ROOM
+    annotationProcessor ROOM_COMPILER
+    testImplementation ROOM_TEST
+    implementation(MULTI_TYPE) {
+        exclude group: 'com.android.support'
+    }
 }

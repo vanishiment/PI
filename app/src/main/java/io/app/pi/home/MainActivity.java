@@ -1,4 +1,4 @@
-package io.app.pi;
+package io.app.pi.home;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,6 +18,8 @@ import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.app.pi.R;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener {
 
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 .addItem(new BottomNavigationItem(R.drawable.ic_home_black_24dp, R.string.title_home))
                 .addItem(new BottomNavigationItem(R.drawable.ic_dashboard_black_24dp, R.string.title_dashboard))
                 .addItem(new BottomNavigationItem(R.drawable.ic_notifications_black_24dp, R.string.title_notifications))
+                .addItem(new BottomNavigationItem(R.drawable.ic_person,R.string.title_person))
                 .initialise();
         mBottomBar.setTabSelectedListener(this);
     }
@@ -143,6 +146,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
             mFragmentList.add(new OneFrag());
             mFragmentList.add(new TwoFragment());
             mFragmentList.add(new ThreeFragment());
+            mFragmentList.add(new MeFrag());
         }
 
         @Override

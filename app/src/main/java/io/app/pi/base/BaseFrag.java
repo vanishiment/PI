@@ -1,9 +1,7 @@
-package io.app.pi;
+package io.app.pi.base;
 
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.qmuiteam.qmui.widget.QMUIEmptyView;
 
 public abstract class BaseFrag extends LazyFrag {
 
