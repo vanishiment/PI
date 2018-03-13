@@ -6,12 +6,14 @@
             android:id="@+id/menu_action_search"
             android:icon="@drawable/ic_search"
             android:title="@string/action_search"
+            android:orderInCategory="100"
             app:showAsAction="ifRoom"/>
 
     <item
             android:id="@+id/menu_action_more"
             android:icon="@drawable/ic_more"
             android:title="@string/action_more"
+            android:orderInCategory="102"
             app:showAsAction="ifRoom">
 
         <menu>

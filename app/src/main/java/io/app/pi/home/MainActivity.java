@@ -1,12 +1,16 @@
 package io.app.pi.home;
 
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,8 +25,10 @@ import java.util.List;
 
 import io.app.pi.R;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener {
+public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener,TwoFragment.OnShowAction {
 
+    DrawerLayout mDrawerLayout;
+    RecyclerView mFilterRV;
     Toolbar mToolbar;
     TextView mTitle;
     ViewPager mViewPager;
@@ -31,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.nav_home);
         QMUIStatusBarHelper.translucent(this);
         initTitle();
         initViewPager();
@@ -39,6 +45,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     }
 
     private void initTitle() {
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mFilterRV = findViewById(R.id.filters);
+        FilterAdapter filterAdapter = new FilterAdapter();
+        mFilterRV.setAdapter(filterAdapter);
         mToolbar = findViewById(R.id.toolbar);
         mTitle = findViewById(R.id.toolbar_title);
         setSupportActionBar(mToolbar);
@@ -101,6 +111,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     }
 
     @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.END)) {
+            mDrawerLayout.closeDrawer(GravityCompat.END);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
     public void onTabSelected(int position) {
         mViewPager.setCurrentItem(position, false);
     }
@@ -128,6 +147,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onShowFilter() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.END)){
+            mDrawerLayout.closeDrawer(GravityCompat.END);
+        }else {
+            mDrawerLayout.openDrawer(GravityCompat.END);
+        }
     }
 
     private static class MainVPAdapter extends FragmentStatePagerAdapter {

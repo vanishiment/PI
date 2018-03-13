@@ -10,50 +10,44 @@
             android:orientation="vertical">
 
         <TextView
+                style="@style/PoeTitleDetailStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textStyle="bold"
-                android:text="将进酒"
-                android:textSize="18sp"
-                android:textColor="#000000"/>
+                android:text="将进酒"/>
         <TextView
+                style="@style/PoeDyStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:textStyle="normal"
                 android:text="唐·李白"
-                android:textSize="14sp"/>
+        />
 
         <TextView
+                style="@style/PoeTextDetailStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:textStyle="normal"
-                android:text="@string/poetry_strings"
-                android:textSize="16sp"
                 android:lineSpacingMultiplier="1.5"
-                android:textColor="#000000"/>
+                android:text="@string/poetry_strings"
+        />
 
         <TextView
+                style="@style/PoeTitleDetailStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textStyle="italic"
-                android:text="赏析："
-                android:textSize="18sp"
-                android:textColor="#000000"/>
+                android:text="赏析："/>
 
         <TextView
+                style="@style/PoeTextDetailStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textStyle="normal"
-                android:text="@string/poe"
-                android:textSize="16sp"
-                android:lineSpacingMultiplier="1.5"/>
+                android:lineSpacingMultiplier="1.5"
+                android:text="@string/poetry_appreciate"/>
 
     </LinearLayout>
 

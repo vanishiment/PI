@@ -16,21 +16,21 @@ import io.app.pi.home.DetailAct;
 import me.drakeet.multitype.ItemViewBinder;
 
 
-public class PoeViewBinder extends ItemViewBinder<Poe, PoeViewBinder.ViewHolder> {
+public class PoeFavViewBinder extends ItemViewBinder<PoeFav, PoeFavViewBinder.ViewHolder> {
 
     @NonNull
     @Override
     protected ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
-        View root = inflater.inflate(R.layout.item_poe, parent, false);
+        View root = inflater.inflate(R.layout.item_poe_fav, parent, false);
         return new ViewHolder(root);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull Poe poe) {
-        String title = poe.getTitle();
-        String dynasty = poe.getDynasty();
-        String author = poe.getAuthor();
-        String content = poe.getContent();
+    protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull PoeFav poeFav) {
+        String title = poeFav.getTitle();
+        String dynasty = poeFav.getDynasty();
+        String author = poeFav.getAuthor();
+        String content = poeFav.getContent();
         if (!TextUtils.isEmpty(title)){
             holder.poeTitle.setText(title);
         }
@@ -57,7 +57,7 @@ public class PoeViewBinder extends ItemViewBinder<Poe, PoeViewBinder.ViewHolder>
 
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder{
 
         LinearLayout poeLL;
         TextView poeTitle,poeAuthor,poeContent;
@@ -69,7 +69,7 @@ public class PoeViewBinder extends ItemViewBinder<Poe, PoeViewBinder.ViewHolder>
             poeAuthor = itemView.findViewById(R.id.poe_item_author);
             poeContent = itemView.findViewById(R.id.poe_item_content);
         }
-    }
 
+    }
 
 }
