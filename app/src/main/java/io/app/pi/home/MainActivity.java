@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 
         switch (id) {
             case R.id.menu_action_search:
-                startActivity(new Intent(this,SettingsAct.class));
+                startActivity(new Intent(this,SearchAct.class));
                 return true;
             case R.id.menu_action_more:
                 return true;

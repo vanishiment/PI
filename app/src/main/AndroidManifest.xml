@@ -22,8 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.DetailAct"></activity>
-        <activity android:name=".home.SettingsAct"></activity>
+        <activity android:name=".home.DetailAct" />
+        <activity android:name=".home.SettingsAct" />
+        <activity android:name=".home.SearchAct"></activity>
     </application>
 
 </manifest>
