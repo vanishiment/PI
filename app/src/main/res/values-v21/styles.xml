@@ -4,6 +4,7 @@
     <style name="AppTheme" parent="AppTheme.Base">
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
     </style>
 
 </resources>

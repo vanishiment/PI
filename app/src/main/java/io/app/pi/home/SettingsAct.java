@@ -1,16 +1,9 @@
 package io.app.pi.home;
 
-
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.qmuiteam.qmui.widget.QMUILoadingView;
@@ -18,25 +11,17 @@ import com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView;
 import com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView;
 
 import io.app.pi.R;
-import io.app.pi.base.BaseFrag;
-import io.app.pi.base.LazyFrag;
 
-public class MeFrag extends Fragment {
+public class SettingsAct extends AppCompatActivity {
 
     QMUIGroupListView mGroupListView;
 
-    public MeFrag() {
-        // Required empty public constructor
-    }
-
-
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_me,container,false);
-        mGroupListView = view.findViewById(R.id.group_list_view);
-//        initGroupListView();
-        return view;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
+        mGroupListView = findViewById(R.id.group_list_view);
+        initGroupListView();
     }
 
     private void initGroupListView(){
@@ -58,13 +43,13 @@ public class MeFrag extends Fragment {
         itemWithSwitch.getSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Toast.makeText(getActivity(), "checked = " + isChecked, Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingsAct.this, "checked = " + isChecked, Toast.LENGTH_SHORT).show();
             }
         });
 
         QMUICommonListItemView itemWithCustom = mGroupListView.createItemView("Item 6");
         itemWithCustom.setAccessoryType(QMUICommonListItemView.ACCESSORY_TYPE_CUSTOM);
-        QMUILoadingView loadingView = new QMUILoadingView(getActivity());
+        QMUILoadingView loadingView = new QMUILoadingView(SettingsAct.this);
         itemWithCustom.addAccessoryCustomView(loadingView);
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -72,12 +57,12 @@ public class MeFrag extends Fragment {
             public void onClick(View v) {
                 if (v instanceof QMUICommonListItemView) {
                     CharSequence text = ((QMUICommonListItemView) v).getText();
-                    Toast.makeText(getActivity(), text + " is Clicked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SettingsAct.this, text + " is Clicked", Toast.LENGTH_SHORT).show();
                 }
             }
         };
 
-        QMUIGroupListView.newSection(getContext())
+        QMUIGroupListView.newSection(SettingsAct.this)
                 .setTitle("Section 1: 默认提供的样式")
                 .setDescription("Section 1 的描述")
                 .addItemView(normalItem, onClickListener)
@@ -87,10 +72,9 @@ public class MeFrag extends Fragment {
                 .addItemView(itemWithSwitch, onClickListener)
                 .addTo(mGroupListView);
 
-        QMUIGroupListView.newSection(getContext())
+        QMUIGroupListView.newSection(SettingsAct.this)
                 .setTitle("Section 2: 自定义右侧 View")
                 .addItemView(itemWithCustom, onClickListener)
                 .addTo(mGroupListView);
     }
-
 }

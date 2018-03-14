@@ -31,8 +31,9 @@ dependencies {
     implementation SUPPORT_DESIGN
     implementation SUPPORT_VECTOR_DRAWABLE
     implementation SUPPORT_CARD_VIEW
+    implementation CONSTRAINT_LAYOUT
+    implementation SUPPORT_V4
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.android.support:support-v4:26.1.0'
     testImplementation TEST_JUNIT
     androidTestImplementation TEST_RUNNER
     androidTestImplementation TEST_ESPRESSO
